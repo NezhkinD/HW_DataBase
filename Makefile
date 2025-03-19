@@ -5,12 +5,10 @@ DATABASE_USER = dnezhkin
 up:
 	@docker run -d \
       --name ${CONTAINER_NAME} \
-      -p 55432:5432 \
       -e POSTGRES_USER=${DATABASE_USER} \
       -e POSTGRES_PASSWORD=wC3DXRWgCM \
       -e POSTGRES_HOST_AUTH_METHOD=trust \
       -e POSTGRES_DB=${DATABASE_NAME} \
-      --restart always \
       postgres:17.4
 
 stop:
