@@ -1,7 +1,8 @@
 SELECT maker,
        car.model,
        horsepower,
-       engine_capacity
+       engine_capacity,
+       vehicle.type AS "vehicle_type"
 FROM vehicles.car, vehicles.vehicle
 WHERE horsepower > 150
   AND engine_capacity < 3.0
@@ -13,7 +14,8 @@ UNION ALL
 SELECT maker,
        motorcycle.model,
        horsepower,
-       engine_capacity
+       engine_capacity,
+       vehicle.type AS "vehicle_type"
 FROM vehicles.motorcycle, vehicles.vehicle
 WHERE horsepower > 150
   AND engine_capacity < 1.5
@@ -25,7 +27,8 @@ UNION ALL
 SELECT maker,
        vehicles.bicycle.model,
        NULL AS horsepower,
-       NULL AS engine_capacity
+       NULL AS engine_capacity,
+       vehicle.type AS "vehicle_type"
 FROM vehicles.bicycle, vehicles.vehicle
 WHERE gear_count > 18
   AND price < 4000
